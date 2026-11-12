@@ -16,9 +16,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands, tasks
 
-TOKEN = os.getenv("DISCORD_TOKEN")
-if not TOKEN:
-    raise ValueError("DISCORD_TOKEN not founded!")
+
 
 GUILD_ID = 1552013736070357132
 PANEL_CHANNEL_ID = 1568025641570279496
