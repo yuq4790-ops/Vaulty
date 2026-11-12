@@ -1895,12 +1895,20 @@ def validate_config() -> None:
 
 
 def main() -> None:
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+    )
+
     validate_config()
-    token = os.getenv("DISCORD_TOKEN") or BOT_TOKEN
+
+    token = os.getenv("DISCORD_TOKEN")
+
     if not token:
-        raise SystemExit("No bot token. Set the DISCORD_TOKEN environment variable or BOT_TOKEN at the top of main.py.")
-    bot.run(token, log_handler=None)
+        raise SystemExit("DISCORD_TOKEN fehlt in Railway!")
+
+    bot.run(token.strip(), log_handler=None)
 
 
-bot.run("TOKEN")
+if __name__ == "__main__":
+    main()
