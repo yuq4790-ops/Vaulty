@@ -1903,4 +1903,4 @@ def main() -> None:
     bot.run(token, log_handler=None)
 
 
-bot.run("DEIN_BOT_TOKEN")
+bot.run("DISCORD_TOKEN")
